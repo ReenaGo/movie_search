@@ -19,35 +19,37 @@ body {
 	flex-flow: wrap;
 }
 .movie{
-	height: 60vh;
-	width: 20vw;
-	margin: 10px;
-	background-color: black;
+	height: 50vh;
+	width: 18vw;
+	margin: 20px;
+	background-color: #516756ba;
 	border-radius: 5px;
+	text-align: center;
 }
 .movie button{
-	background-color: rgb(84, 211, 80);
+	background-color: #359e4d;
 	color: white;
 	border-radius: 5px;
 	border: none;
 	margin: 0 15px
 }
 .imageDiv {
-	width:100%;
+	width:80%;
 	height: 60%;
+	margin: 10px auto
 }
 .imageDiv img{
 	height: 100%;
 	width: 100%;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+
 
 
 }
 .title{
 	color: white;
+	overflow: hidden;
 	padding: 10px 15px 0 15px;
-	height: 15%
+	height: 10%
 
 }
 .releaseDate{
@@ -72,10 +74,10 @@ a {
 }
 .btn {
 	color: white;
-	background-color:#463e3eea;
+	background-color:#463e3e;
 }
 .btn:hover {
-	background-color: #463e3e;
+	background-color: #463e3e96;
 }
 .btn:active {
 	outline: none;

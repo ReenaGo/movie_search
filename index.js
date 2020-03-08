@@ -1,11 +1,25 @@
-document.addEventListener("DOMContentLoaded", function (){
+function saveToWatchList(id){
+    var movie = movieData.find((currentMovie)=>{
+        return id===currentMovie.imdbID
+    })
+    var watchListJSON = localStorage.getItem("watchList")
+    var watchList = JSON.parse(watchListJSON)
+    if(watchList===null){
+        watchList = []
+    }
+    watchList.push(movie)
+    watchListJSON= JSON.stringify(watchList)
+    localStorage.setItem("watchList", watchListJSON)
+
+}
+
     function renderMovie(array){
         var movieInnerHTML = array.map(movie=>{
             return (`<div class="movie">
                         <div class="imageDiv"><img src=${movie.Poster}/></div>
                         <div class="title">${movie.Title}</div>
                         <div class="releaseDate">${movie.Year}</div>
-                        <button class="add" data-id=${movie.imdbID}>ADD</button>
+                        <button class="add" onclick="saveToWatchList('${movie.imdbID}')" data-id=${movie.imdbID}>ADD</button>
                     </div>`)
         })
         return movieInnerHTML.join("")
@@ -37,30 +51,24 @@ document.addEventListener("DOMContentLoaded", function (){
                 }
             })
         }
-        
+        console.log('hi 1')
         e.target.elements[0].value=""
+        console.log(addButtons)
 
-        for(i=0; i<addButtons.length; i++){
-            addButtons[i].addEventListener('click',(e)=>{
-                saveToWatchList(e.target.dataset.id)
-            })
-        }
+        // for(i=0; i<addButtons.length; i++){
+        //     console.log('hi 3')
+        //     addButtons[i].addEventListener('click',(e)=>{
+        //         console.log(e)
+        //         saveToWatchList(e.target.dataset.id)
+        //     })
+        // }
     })
 
-    function saveToWatchList(id){
-        var movie = movieData.find((currentMovie)=>{
-            return id===currentMovie.imdbID
-        })
-        var watchListJSON = localStorage.getItem("watchList")
-        var watchList = JSON.parse(watchListJSON)
-        if(watchList===null){
-            watchList = []
-        }
-        watchList.push(movie)
-        watchListJSON= JSON.stringify(watchList)
-        localStorage.setItem("watchList", watchListJSON)
-    }
-})
+
+   
+   
+
+
 
 
 
